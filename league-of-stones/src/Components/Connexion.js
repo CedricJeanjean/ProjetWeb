@@ -11,9 +11,20 @@ function Connexion(){
     const sleep = ms => new Promise(resolve => setTimeout(resolve, ms))
 
     const onSubmit = async values => {
-    await sleep(300)
-    window.alert(JSON.stringify(values, 0, 2))
-}
+        fetch('http://localhost:3001/login', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+               email: values.email,
+               password: values.mdp
+            })
+          }).then(result => result.json())
+          .then(result => {
+            console.log(result)
+          })
+    }
 
     return (
 
@@ -26,12 +37,12 @@ function Connexion(){
             render={({ handleSubmit, form, submitting, pristine, values }) => (
                 <form onSubmit={handleSubmit}>
                 <div>
-                    <label>Pseudo</label>
+                    <label>Email</label>
                     <Field
-                    name="Pseudo"
+                    name="email"
                     component="input"
                     type="text"
-                    placeholder="Pseudo"
+                    placeholder="Email"
                     />
                 </div>
                 <div>

@@ -9,12 +9,23 @@ import Styles from './Styles'
 
 
 function Inscription(){
-    const sleep = ms => new Promise(resolve => setTimeout(resolve, ms))
-
     const onSubmit = async values => {
-    await sleep(300)
-    window.alert(JSON.stringify(values, 0, 2))
-}
+        
+        fetch('http://localhost:3001/user', {
+            method: 'PUT',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+               email: values.email,
+               name: values.pseudo,
+               password: values.mdp
+            })
+          }).then(result => result.json())
+          .then(result => {
+            console.log(result)
+          })
+    }
     return (
 
         <Styles>
@@ -28,12 +39,24 @@ function Inscription(){
                 <div>
                     <label>Pseudo</label>
                     <Field
-                    name="Pseudo"
+                    name="pseudo"
                     component="input"
                     type="text"
                     placeholder="Pseudo"
                     />
                 </div>
+                                
+                <div>
+                    <label>Email</label>
+                    <Field
+                    name="email"
+                    component="input"
+                    type="text"
+                    placeholder="Email"
+                    />
+                    
+                </div>
+
                 <div>
                     <label>Mot de passe</label>
                     <Field
@@ -42,21 +65,7 @@ function Inscription(){
                     type="text"
                     placeholder="Mot de passe"
                     />
-                </div>
-                
-                
-                <div>
-                <label>Confirmez mdp</label>
-                    <Field
-                    name="confirmmdp"
-                    component="input"
-                    type="text"
-                    placeholder="Confirmer Mot de passe"
-                    />
-                    
-                </div>
-                
-                        
+                </div>   
                 
                 <div className="buttons">
                     <button type="submit" disabled={submitting || pristine}>
