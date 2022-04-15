@@ -22,6 +22,7 @@ function Connexion(){
             })
           }).then(result => result.json())
           .then(result => {
+            sessionStorage.setItem('token', result.token);
             console.log(result)
           })
     }
