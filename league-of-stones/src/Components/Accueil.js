@@ -11,6 +11,11 @@ import 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js'
 
 function Accueil(){
 
+    console.log("token : "+sessionStorage.getItem('token'));
+    if(sessionStorage.getItem('token') == null){
+        window.location.href = "http://localhost:3000/connexion/";
+    }
+
     const deconnection = async values => {
         fetch('http://localhost:3001/logout', {
             method: 'POST',
@@ -18,49 +23,23 @@ function Accueil(){
                 'www-authenticate' : sessionStorage.getItem('token'),
                 'Content-Type': 'application/json'
             },
-          }).then(result => result.json())
-          .then(result => {
-            console.log(result)
-          })
-    }
-
-    const deleteAccount = async values => {
-
-        //Il faut un formulaire pour mdp et email
-        fetch('http://localhost:3001/users/amIConnected', {
-            method: 'GET',
-            headers: {
-              'www-authenticate' : sessionStorage.getItem('token'),
-              'Content-Type': 'application/json'
-            },
-          }).then(result => result.json())
-          .then(result => {
-              console.log(result);
-            fetch('http://localhost:3001/users/unsubscribe?email='+result.connectedUser.email+'&password=cedric', {
-                method: 'GET',
-                headers: {
-                    'www-authenticate' : sessionStorage.getItem('token'),
-                    'Content-Type': 'application/json'
-                },
-                }).then(result => result.json())
-                .then(result => {
-                    console.log(result)
-            })
-          })
+          }).then(result => {
+            sessionStorage.removeItem('token');
+            window.location.href = "http://localhost:3000/connexion/";
+            result.json()})
     }
 
     return (
        
         <div className="body">
             
-            <a className="btn-logout " id="logout" href="" onClick={deconnection}>
-                <i class="fa-solid fa-right-from-bracket"></i>
+            <div className="btn-logout " id="logout"  onClick={deconnection}>
+                <i className="fa-solid fa-right-from-bracket"></i>
                 <div className="logout">Deconnexion</div>
-            </a>
-            <div className="center">
-             <button className="btn-match red">Match</button>
             </div>
-            <button id="deleteAccount" onClick={deleteAccount}> Supprimer compte</button>
+            <div className="center">
+                <button className="btn-match red">Match</button>
+            </div>
       
         </div>
         

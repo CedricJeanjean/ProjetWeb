@@ -99,18 +99,19 @@ i {
 
 }
 
-a:hover {
+#logout:hover {
   width: 100px;
   color: white;
 }
 
-a:hover .logout{
+#logout:hover .logout{
   opacity: .9;
 }
 i:hover{
 color: white;
 }
-a {
+
+#logout {
   text-decoration: none;
   color: white;
 }

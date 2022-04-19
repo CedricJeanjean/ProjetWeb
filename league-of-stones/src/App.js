@@ -4,6 +4,7 @@ import Connexion from "./Components/Connexion";
 import Inscription from "./Components/Inscription";
 import Suppression from "./Components/Suppression";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Accueil from "./Components/Accueil";
 
 export default function App() {
   return (
@@ -17,6 +18,7 @@ export default function App() {
    
 
     <Routes>
+      <Route path = "/" element = {<Accueil/>}/>
       <Route path = "/connexion/" element = {<Connexion/>}/>
       <Route path = "/inscription/" element = {<Inscription/>}/>
       <Route path = "/suppression/" element = {<Suppression/>}/>
