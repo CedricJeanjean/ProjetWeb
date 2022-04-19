@@ -23,7 +23,7 @@ function Inscription(){
             })
           }).then(result => result.json())
           .then(result => {
-            console.log(result)
+            window.location.href = "http://localhost:3000/connexion/";
           })
     }
     return (

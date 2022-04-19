@@ -4,6 +4,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function Matchmaking(){
+
+    console.log(sessionStorage.getItem('token'))
+    
     return (
        
         <div>
