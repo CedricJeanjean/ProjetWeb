@@ -1,45 +1,55 @@
 import '../App.css';
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import ListPlayers from './ListPlayers.js';
+import ListRequest from './ListRequest.js';
 
+class Matchmaking extends React.Component {
 
-function Matchmaking(){
+    constructor(props) {
+        super(props);
+        this.nameid = new Map();
+        this.playerslist = [];
+        this.request = [];
 
-    const nameid = new Map();
+        setInterval(this.participate(),5000);
+    }
 
-    console.log(sessionStorage.getItem('token'))
-
-    fetch('http://localhost:3001/matchmaking/participate', {
-            method: 'GET',
-            headers: {
-              'www-authenticate' : sessionStorage.getItem('token'),
-              'Content-Type': 'application/json'
-            },
-          }).then(result => result.json())
-          .then(result => {
-              console.log(result);
-          }
-    );
-
-    function getPlayer() {
+    componentDidMount() {
         fetch('http://localhost:3001/matchmaking/getAll', {
             method: 'GET',
             headers: {
-              'www-authenticate' : sessionStorage.getItem('token'),
-              'Content-Type': 'application/json'
+            'www-authenticate' : sessionStorage.getItem('token'),
+            'Content-Type': 'application/json'
             },
-          }).then(result => result.json())
-          .then(result => {
-              for(let i = 0; i<result.length; i++){
-                  console.log(result[i].name);
-                  nameid.set(result[i].name, result[i].matchmakingId);
-              }
-          }
+        }).then(result => result.json())
+        .then(result => {
+            for(let i = 0; i < result.length; i++){
+                this.nameid.set(result[i].name, result[i].matchmakingId);
+            }
+            this.playerslist = result;
+            this.setState(this.playerslist);
+        }
     );
     }
 
-    function askForPlay(name){
-        fetch('http://localhost:3001/matchmaking/request?matchmakingId='+nameid.get(name), {
+    participate = () => {
+        fetch('http://localhost:3001/matchmaking/participate', {
+            method: 'GET',
+            headers: {
+            'www-authenticate' : sessionStorage.getItem('token'),
+            'Content-Type': 'application/json'
+            },
+            }).then(result => result.json())
+            .then(result => {
+                this.request = result.request;
+                this.setState(this.request);
+            }
+        );
+    }
+
+    askForPlay = (name) => {
+        fetch('http://localhost:3001/matchmaking/request?matchmakingId='+this.nameid.get(name), {
             method: 'GET',
             headers: {
               'www-authenticate' : sessionStorage.getItem('token'),
@@ -52,25 +62,31 @@ function Matchmaking(){
     );
     }
 
-    getPlayer();
+    acceptRequest = (name) => {
+        fetch('http://localhost:3001/matchmaking/acceptRequest?matchmakingId='+this.nameid.get(name), {
+            method: 'GET',
+            headers: {
+              'www-authenticate' : sessionStorage.getItem('token'),
+              'Content-Type': 'application/json'
+            },
+          }).then(result => result.json())
+          .then(result => {
+              console.log(result);
+          }
+    );
+    }
 
+    render(){
+        return (
+            <div>
+                <ListPlayers liste={this.playerslist} setAdv={this.askForPlay}/>
 
-    return (
-       
-        <div>
-            <button>ANNULER</button>
-            <li>
-                <ul>oe<button>MATCH</button></ul>
-                <ul>oe2<button>MATCH</button></ul>
-            </li>
+                Pending request : 
 
-            <li>
-                <ol>zina wants to fight! <button>decline</button><button>accept</button></ol>
-            </li>
-        </div>
-        
-        
-    )
+                <ListRequest liste={this.request} accept={this.acceptRequest}/>
+            </div>
+        )
+    }
 }
 
 export default Matchmaking;
