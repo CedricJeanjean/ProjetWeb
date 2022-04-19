@@ -7,6 +7,7 @@ import Connexion from "./Connexion";
 import Inscription from "./Inscription";
 import { useState } from 'react';
 import 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js';
+import { CardBody } from 'bootstrap-react';
 
 
 function Accueil(){
@@ -30,8 +31,9 @@ function Accueil(){
     }
 
     return (
-       
-        <div className="body">
+            
+        <body>
+        <div  className="body">
             
             <div className="btn-logout " id="logout"  onClick={deconnection}>
                 <i className="fa-solid fa-right-from-bracket"></i>
@@ -42,7 +44,7 @@ function Accueil(){
             </div>
       
         </div>
-        
+        </body>
     
     
     )
