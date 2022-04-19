@@ -12,7 +12,6 @@ import { CardBody } from 'bootstrap-react';
 
 function Accueil(){
 
-    console.log("token : "+sessionStorage.getItem('token'));
     if(sessionStorage.getItem('token') == null){
         window.location.href = "http://localhost:3000/connexion/";
     }
@@ -30,6 +29,10 @@ function Accueil(){
             result.json()})
     }
 
+    const onclickfct  = fct => {
+        window.location.href = "http://localhost:3000/matchmaking/";
+    }
+
     return (
             
         <body>
@@ -40,7 +43,7 @@ function Accueil(){
                 <div className="logout">Deconnexion</div>
             </div>
             <div className="center">
-                <button className="btn-match red">Match</button>
+                <button className="btn-match red" onClick={onclickfct}>Match</button>
             </div>
       
         </div>
