@@ -1,0 +1,117 @@
+@import url(https://fonts.googleapis.com/css?family=Oswald:400);
+.center {
+	height: 100vh;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background: #b59696c4;
+}
+
+
+.body {
+  width: 100%;
+  background-color: black;
+}
+* {
+    
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+
+.btn-match {
+    width: 15%;     
+    height: 7%;
+    border-radius: 12px;
+}
+
+
+button {
+	width: 150px;
+	height: 50px;
+	cursor: pointer;
+	background: #333;
+	margin: 10px;
+	border: none;
+	border-radius: 10px;
+	box-shadow: -5px -5px 15px #444, 5px 5px 15px #222, inset 5px 5px 10px #444, inset -5px -5px 10px #222;
+	color: #222;
+	font-size: 16px;
+  
+}
+
+button:hover {
+	box-shadow: -5px -5px 15px #444, 5px 5px 15px #222, inset 5px 5px 10px #222, inset -5px -5px 10px #444;
+	font-size: 15px;
+	transition: 500ms;
+}
+
+button:focus {
+	outline: none;
+}
+
+.red:hover {
+	color: #f07171;
+	text-shadow: 0px 0px 10px #f07171;
+}
+
+
+
+i {
+  width: 25px;
+  border-radius: 50px;
+  float: left;
+  color: white;
+}
+
+.logout {
+  font-size: .8em;
+  font-family: 'Oswald', sans-serif;
+	position: relative;
+  right: -22px;
+  bottom: 22px;
+  overflow: hidden;
+  letter-spacing: 3px;
+  opacity: 0;
+  transition: opacity .45s;
+  -webkit-transition: opacity .35s;
+  color: white;
+  
+}
+
+.btn-logout {
+	text-decoration: none;
+	float: right;
+  padding: 5px;
+ 
+  color: white;
+  width: 35px;
+  height: 38px;
+  background-color: black;
+  transition: width .35s;
+  -webkit-transition: width .35s;
+  overflow: hidden;
+  position:absolute;
+  right: 0;
+
+}
+
+a:hover {
+  width: 100px;
+  color: white;
+}
+
+a:hover .logout{
+  opacity: .9;
+}
+i:hover{
+color: white;
+}
+a {
+  text-decoration: none;
+  color: white;
+}
+
