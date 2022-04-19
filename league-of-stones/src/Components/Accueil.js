@@ -42,7 +42,11 @@ function Accueil(){
                 <div className="logout">Deconnexion</div>
             </div>
             <div className="center">
-                <button className="btn-match red" onClick={onclickfct}>Match</button>
+                <div className="water" onClick={onclickfct}>
+                    <button className="btn-match" >Match</button>
+                </div>
+
+                
             </div>
       
         </div>

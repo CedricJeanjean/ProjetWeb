@@ -35,9 +35,13 @@ margin: -20px 0;
 
 
 .btn-match {
-    width: 15%;     
-    height: 7%;
-    border-radius: 12px;
+  border-radius: 66px;
+  z-index: 1000;
+  margin: 37% 33%;
+  color: #000000;
+  font-size: 30px;
+  font-weight: 300;
+  background: white;
 }
 
 
@@ -127,4 +131,46 @@ color: white;
   text-decoration: none;
   color: white;
 }
+.water:hover{
+  cursor: pointer;
+  background-color: #175562;
+  transition:  ease-in-out .5s;
+}
 
+.water{
+  width:400px;
+  height: 400px;
+  background-color:   #17556260;
+  border-radius: 50%;
+  position: relative;
+  box-shadow: inset 0 0 30px 0 rgba(0,0,0,.5), 0 4px 10px 0 rgba(0,0,0,.5);
+  overflow: hidden;
+  transition: ease-in-out .5s;
+}
+.water:before, .water:after{
+  content:'';
+  position: absolute;
+  width:400px;
+  height: 400px;
+  top:-150px;
+  background-color: #fff;
+}
+
+.water:before{
+  border-radius: 45%;
+  background:rgba(255,255,255,.7);
+  animation:wave 5s linear infinite;
+}
+.water:after{
+  border-radius: 35%;
+  background:rgba(255,255,255,.3);
+  animation:wave 5s linear infinite;
+}
+@keyframes wave{
+  0%{
+      transform: rotate(0);
+  }
+  100%{
+      transform: rotate(360deg);
+  }
+}
