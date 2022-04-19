@@ -7,7 +7,6 @@ import Connexion from "./Connexion";
 import Inscription from "./Inscription";
 import { useState } from 'react';
 import 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js';
-import { CardBody } from 'bootstrap-react';
 
 
 function Accueil(){
@@ -43,7 +42,11 @@ function Accueil(){
                 <div className="logout">Deconnexion</div>
             </div>
             <div className="center">
-                <button className="btn-match red" onClick={onclickfct}>Match</button>
+                <div className="water" onClick={onclickfct}>
+                    <button className="btn-match" >Match</button>
+                </div>
+
+                
             </div>
       
         </div>

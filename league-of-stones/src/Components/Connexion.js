@@ -44,7 +44,7 @@ function Connexion(){
             render={({ handleSubmit, form, submitting, pristine, values }) => (
                 <form onSubmit={handleSubmit}>
                 <div>
-                    <label>Email</label>
+                   
                     <Field
                     name="email"
                     component="input"
@@ -53,7 +53,7 @@ function Connexion(){
                     />
                 </div>
                 <div>
-                    <label>Mot de passe</label>
+                   
                     <Field
                     name="mdp"
                     component="input"
