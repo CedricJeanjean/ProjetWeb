@@ -1,4 +1,13 @@
 @import url(https://fonts.googleapis.com/css?family=Oswald:400);
+body{
+  background-image: url("../accueil.jpg");
+ background-repeat: no-repeat;
+ background-attachment: fixed;
+ background-position: center center;
+ background-size: cover;
+margin: -20px 0;
+}
+
 .center {
 	height: 100vh;
 	overflow: hidden;
@@ -6,13 +15,16 @@
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	background: #b59696c4;
+ 
 }
+
 
 
 .body {
   width: 100%;
-  background-color: black;
+
+  background: url("../accueil.jpg") cover no-repeat center center;
+  overflow-y: hidden;
 }
 * {
     
@@ -37,8 +49,8 @@ button {
 	margin: 10px;
 	border: none;
 	border-radius: 10px;
-	box-shadow: -5px -5px 15px #444, 5px 5px 15px #222, inset 5px 5px 10px #444, inset -5px -5px 10px #222;
-	color: #222;
+
+	color: white;
 	font-size: 16px;
   
 }
