@@ -23,7 +23,7 @@ function Connexion(){
             })
           }).then(result => {
               if(result.status == 500){
-                  console.log("Wrong email and mdp")
+                alert("Mauvais email ou mdp")
               }
               return result.json();})
           .then(result => {

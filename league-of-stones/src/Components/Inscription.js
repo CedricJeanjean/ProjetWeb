@@ -21,10 +21,14 @@ function Inscription(){
                name: values.pseudo,
                password: values.mdp
             })
-          }).then(result => result.json())
-          .then(result => {
-            window.location.href = "http://localhost:3000/connexion/";
-          })
+          }).then(result => {
+            if(result.status == 409){
+                alert("Email existe déjà")
+            }else{
+                result.json();
+                window.location.href = "http://localhost:3000/connexion/";
+            }
+        })
     }
     return (
 
