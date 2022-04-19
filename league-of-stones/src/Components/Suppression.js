@@ -8,35 +8,44 @@ import {BrowserRouter as Router , Route, Link, Routes} from "react-router-dom";
 
 
 
-function Connexion(){
-    const sleep = ms => new Promise(resolve => setTimeout(resolve, ms))
+function Suppression(){
 
     const onSubmit = async values => {
-        fetch('http://localhost:3001/login', {
-            method: 'POST',
+        fetch('http://localhost:3001/users/amIConnected', {
+            method: 'GET',
             headers: {
+              'www-authenticate' : sessionStorage.getItem('token'),
               'Content-Type': 'application/json'
             },
-            body: JSON.stringify({
-               email: values.email,
-               password: values.mdp
-            })
-          }).then(result => {
-              if(result.status == 500){
-                  console.log("Wrong email and mdp")
-              }
-              return result.json();})
+          }).then(result => result.json())
           .then(result => {
-            sessionStorage.setItem('token', result.token);
-            window.location.href = "http://localhost:3000/";
-            console.log(result)
+            if(result!=null){
+                fetch('http://localhost:3001/users/unsubscribe?email='+values.email+'&password='+values.mdp, {
+                    method: 'GET',
+                    headers: {
+                        'www-authenticate' : sessionStorage.getItem('token'),
+                        'Content-Type': 'application/json'
+                    },
+                    }).then(result => {
+                        if(result.status == 500){
+                            console.log("Error")
+                        }
+                        return result.json();
+                    })
+                    .then(result => {
+                        console.log("Ok");
+                })
+            }
+            else{
+                console.log("not connected");
+            }
           })
     }
 
     return (
 
         <Styles>
-            <h1>Connexion</h1>
+            <h1>Suppression de compte</h1>
 
             <Form
             onSubmit={onSubmit}
@@ -85,4 +94,4 @@ function Connexion(){
     
 }
 
-export default Connexion;
+export default Suppression;
