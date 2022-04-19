@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState } from 'react';
 import Styles from './Styles'
 import { Form, Field } from 'react-final-form'
+import {BrowserRouter as Router , Route, Link, Routes} from "react-router-dom";
 
 
 
@@ -20,7 +21,11 @@ function Connexion(){
                email: values.email,
                password: values.mdp
             })
-          }).then(result => result.json())
+          }).then(result => {
+              if(result.status == 500){
+                  console.log("Wrong email and mdp")
+              }
+              return result.json();})
           .then(result => {
             sessionStorage.setItem('token', result.token);
             console.log(result)
