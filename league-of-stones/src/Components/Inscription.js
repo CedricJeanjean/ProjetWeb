@@ -37,7 +37,6 @@ function Inscription(){
             render={({ handleSubmit, form, submitting, pristine, values }) => (
                 <form onSubmit={handleSubmit}>
                 <div>
-                    <label>Pseudo</label>
                     <Field
                     name="pseudo"
                     component="input"
@@ -47,7 +46,6 @@ function Inscription(){
                 </div>
                                 
                 <div>
-                    <label>Email</label>
                     <Field
                     name="email"
                     component="input"
@@ -58,7 +56,6 @@ function Inscription(){
                 </div>
 
                 <div>
-                    <label>Mot de passe</label>
                     <Field
                     name="mdp"
                     component="input"
