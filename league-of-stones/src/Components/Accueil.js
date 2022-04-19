@@ -1,6 +1,9 @@
 import '../App.css';
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {BrowserRouter as Router , Route, Link, Routes} from "react-router-dom";
+import Connexion from "./Connexion";
+import Inscription from "./Inscription";
 import { useState } from 'react';
 
 
@@ -49,8 +52,9 @@ function Accueil(){
         <div>
             <button id="logout" onClick={deconnection}>Deconnection</button>
             <button id="deleteAccount" onClick={deleteAccount}>Supprimer compte</button>
-        </div>
+            <button id="matchmaking">Lancer le match</button>
         
+   </div>
     )
 }
 
