@@ -12,7 +12,10 @@ class Matchmaking extends React.Component {
         this.playerslist = [];
         this.request = [];
 
-        setInterval(this.participate(),5000);
+        setInterval(() => {
+            this.participate();
+            this.componentDidMount();
+          }, 5000);
     }
 
     componentDidMount() {
@@ -58,6 +61,7 @@ class Matchmaking extends React.Component {
           }).then(result => result.json())
           .then(result => {
               console.log(result);
+              document.location.reload(true);
           }
     );
     }
@@ -72,9 +76,11 @@ class Matchmaking extends React.Component {
           }).then(result => result.json())
           .then(result => {
               console.log(result);
+              document.location.reload(true);
           }
     );
     }
+
 
     render(){
         return (
