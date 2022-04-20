@@ -28,7 +28,9 @@ function Suppression(){
                     },
                     }).then(result => {
                         if(result.status == 500){
-                            console.log("Error")
+                            alert("Compte introuvable");
+                        }else{
+                        alert("Compte supprimé");
                         }
                         return result.json();
                     })
