@@ -9,12 +9,32 @@ import Accueil from "./Components/Accueil";
 import Match from "./Components/deck/Interface";
 
 export default function App() {
+
+  const deconnection = async values => {
+    
+    fetch('http://localhost:3001/logout', {
+        method: 'POST',
+        headers: {
+            'www-authenticate' : sessionStorage.getItem('token'),
+            'Content-Type': 'application/json'
+        },
+      }).then(result => {
+        sessionStorage.removeItem('token');
+        window.location.href = "http://localhost:3000/connexion/";
+        result.json()})
+}
+
   return (
     <Router>
        <nav className="navbar navbar-expand-lg  fixed-top navbar-dark bg-dark  ">
        <Link className="navbar-brand m-2" to="/connexion/">Connexion</Link>
        <Link className="navbar-brand m-2" to="/inscription/">Inscription</Link>
        <Link className="navbar-brand m-2" to="/suppression/">Suppression</Link>
+
+       <div className="btn-logout " id="logout"  onClick={deconnection}>
+          <i className="fa-solid fa-right-from-bracket"></i>
+          <div className="logout">Deconnexion</div>
+      </div>
     </nav>
    
 

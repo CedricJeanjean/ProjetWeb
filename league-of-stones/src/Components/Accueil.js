@@ -14,18 +14,7 @@ function Accueil(){
         window.location.href = "http://localhost:3000/connexion/";
     }
 
-    const deconnection = async values => {
-        fetch('http://localhost:3001/logout', {
-            method: 'POST',
-            headers: {
-                'www-authenticate' : sessionStorage.getItem('token'),
-                'Content-Type': 'application/json'
-            },
-          }).then(result => {
-            sessionStorage.removeItem('token');
-            window.location.href = "http://localhost:3000/connexion/";
-            result.json()})
-    }
+
 
     const onclickfct  = fct => {
         window.location.href = "http://localhost:3000/matchmaking/";
@@ -35,11 +24,7 @@ function Accueil(){
             
         <body>
         <div  className="body">
-            
-            <div className="btn-logout " id="logout"  onClick={deconnection}>
-                <i className="fa-solid fa-right-from-bracket"></i>
-                <div className="logout">Deconnexion</div>
-            </div>
+
             <div className="center">
                 <div className="water" onClick={onclickfct}>
                     <button className="btn-match" >Match</button>
