@@ -23,7 +23,7 @@ function Connexion(){
             })
           }).then(result => {
               if(result.status == 500){
-                  console.log("Wrong email and mdp")
+                alert("Mauvais email ou mdp")
               }
               return result.json();})
           .then(result => {
@@ -44,7 +44,7 @@ function Connexion(){
             render={({ handleSubmit, form, submitting, pristine, values }) => (
                 <form onSubmit={handleSubmit}>
                 <div>
-                    <label>Email</label>
+                   
                     <Field
                     name="email"
                     component="input"
@@ -53,7 +53,7 @@ function Connexion(){
                     />
                 </div>
                 <div>
-                    <label>Mot de passe</label>
+                   
                     <Field
                     name="mdp"
                     component="input"

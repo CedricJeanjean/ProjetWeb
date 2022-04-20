@@ -10,7 +10,7 @@ import Accueil from "./Components/Accueil";
 export default function App() {
   return (
     <Router>
-       <nav className="navbar navbar-expand-lg  navbar-dark bg-dark  ">
+       <nav className="navbar navbar-expand-lg  fixed-top navbar-dark bg-dark  ">
        <Link className="navbar-brand m-2" to="/connexion/">Connexion</Link>
        <Link className="navbar-brand m-2" to="/inscription/">Inscription</Link>
        <Link className="navbar-brand m-2" to="/suppression/">Suppression</Link>

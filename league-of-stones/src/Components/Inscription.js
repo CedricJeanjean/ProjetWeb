@@ -21,10 +21,14 @@ function Inscription(){
                name: values.pseudo,
                password: values.mdp
             })
-          }).then(result => result.json())
-          .then(result => {
-            window.location.href = "http://localhost:3000/connexion/";
-          })
+          }).then(result => {
+            if(result.status == 409){
+                alert("Email existe déjà")
+            }else{
+                result.json();
+                window.location.href = "http://localhost:3000/connexion/";
+            }
+        })
     }
     return (
 
@@ -37,7 +41,6 @@ function Inscription(){
             render={({ handleSubmit, form, submitting, pristine, values }) => (
                 <form onSubmit={handleSubmit}>
                 <div>
-                    <label>Pseudo</label>
                     <Field
                     name="pseudo"
                     component="input"
@@ -47,7 +50,6 @@ function Inscription(){
                 </div>
                                 
                 <div>
-                    <label>Email</label>
                     <Field
                     name="email"
                     component="input"
@@ -58,7 +60,6 @@ function Inscription(){
                 </div>
 
                 <div>
-                    <label>Mot de passe</label>
                     <Field
                     name="mdp"
                     component="input"
