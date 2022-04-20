@@ -45,6 +45,9 @@ class Matchmaking extends React.Component {
             },
             }).then(result => result.json())
             .then(result => {
+                if(result.match!=null){
+                    window.location.href = "http://localhost:3000/match/";
+                }
                 this.request = result.request;
                 this.setState(this.request);
             }
@@ -77,6 +80,7 @@ class Matchmaking extends React.Component {
           .then(result => {
               console.log(result);
               document.location.reload(true);
+              window.location.href = "http://localhost:3000/match/";
           }
     );
     }

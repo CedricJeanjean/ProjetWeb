@@ -6,6 +6,7 @@ import Suppression from "./Components/Suppression";
 import Matchmaking from "./Components/Matchmaking";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Accueil from "./Components/Accueil";
+import Match from "./Components/deck/Interface";
 
 export default function App() {
   return (
@@ -23,6 +24,7 @@ export default function App() {
       <Route path = "/inscription/" element = {<Inscription/>}/>
       <Route path = "/suppression/" element = {<Suppression/>}/>
       <Route path = "/matchmaking/" element = {<Matchmaking/>}/>
+      <Route path = "/match/" element = {<Match/>}/>
     </Routes>
   </Router>
   );
