@@ -15,7 +15,7 @@ class Matchmaking extends React.Component {
         setInterval(() => {
             this.participate();
             this.componentDidMount();
-          }, 5000);
+          }, 2000);
     }
 
     componentDidMount() {
