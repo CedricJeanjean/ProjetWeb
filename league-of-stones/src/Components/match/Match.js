@@ -105,12 +105,14 @@ class Match extends React.Component {
     }
 
     clickboard = (name) => {
+        document.body.style.cursor = "crosshair";
         this.click = true;
         this.cardforattack = name;
     }
 
     clickadverse = (name) => {
         if(this.click){
+            document.body.style.cursor = "auto";
             fetch('http://localhost:3001/match/attack?card='+this.cardforattack+'&ennemyCard='+name, {
                 method: 'GET',
                 headers: {
