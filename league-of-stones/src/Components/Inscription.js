@@ -36,36 +36,43 @@ function Inscription(){
             <h1>Inscription</h1>
 
             <Form
+           
             onSubmit={onSubmit}
             initialValues={{ stooge: 'larry', employed: false }}
             render={({ handleSubmit, form, submitting, pristine, values }) => (
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit}  className="card loginForm">
                 <div>
-                    <Field
-                    name="pseudo"
-                    component="input"
-                    type="text"
-                    placeholder="Pseudo"
-                    />
+                 <div class="inputbox"> 
+                        <Field
+                        name="pseudo"
+                        component="input"
+                        type="text"
+                        placeholder="Pseudo"
+                        />
+                     </div>
                 </div>
                                 
                 <div>
-                    <Field
-                    name="email"
-                    component="input"
-                    type="text"
-                    placeholder="Email"
-                    />
-                    
+                     <div class="inputbox"> 
+                        <Field
+                        name="email"
+                        
+                        component="input"
+                        type="email"
+                        placeholder="Email"
+                        />
+                    </div> 
                 </div>
 
                 <div>
-                    <Field
-                    name="mdp"
-                    component="input"
-                    type="password"
-                    placeholder="Mot de passe"
-                    />
+                    <div class="inputbox"> 
+                        <Field
+                        name="mdp"
+                        component="input"
+                        type="password"
+                        placeholder="Mot de passe"
+                        />
+                    </div>
                 </div>   
                 
                 <div className="buttons">
