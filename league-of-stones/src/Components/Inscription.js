@@ -40,20 +40,22 @@ function Inscription(){
             onSubmit={onSubmit}
             initialValues={{ stooge: 'larry', employed: false }}
             render={({ handleSubmit, form, submitting, pristine, values }) => (
-                <form onSubmit={handleSubmit}  className="card loginForm">
+                <form onSubmit={handleSubmit}  >
+                     <h3 className="formh3">Inscription</h3>
+             
                 <div>
-                 <div class="inputbox"> 
+                 
                         <Field
                         name="pseudo"
                         component="input"
                         type="text"
                         placeholder="Pseudo"
                         />
-                     </div>
+                     
                 </div>
                                 
                 <div>
-                     <div class="inputbox"> 
+                    
                         <Field
                         name="email"
                         
@@ -61,18 +63,18 @@ function Inscription(){
                         type="email"
                         placeholder="Email"
                         />
-                    </div> 
+                  
                 </div>
 
                 <div>
-                    <div class="inputbox"> 
+                    
                         <Field
                         name="mdp"
                         component="input"
                         type="password"
                         placeholder="Mot de passe"
                         />
-                    </div>
+                   
                 </div>   
                 
                 <div className="buttons">

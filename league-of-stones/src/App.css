@@ -144,8 +144,9 @@ a {
   background: white;
 }
 
-.loginForm h3 {
-  color: #111;
+.formh3 {
+  color: white;
+  font-weight: 800;
   margin-bottom: 50px;
   border-left: 5px solid #3acbe8;
   padding-left: 10px;

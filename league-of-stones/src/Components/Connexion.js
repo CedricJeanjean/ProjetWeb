@@ -42,10 +42,10 @@ function Connexion(){
             onSubmit={onSubmit}
             initialValues={{ stooge: 'larry', employed: false }}
             render={({ handleSubmit, form, submitting, pristine, values }) => (
-                <form onSubmit={handleSubmit} className="card loginForm">
-                    <h3>Login</h3>
+                <form onSubmit={handleSubmit} >
+                    <h3 className="formh3">Connexion</h3>
                 <div>
-                    <div class="inputbox"> 
+                     
                         <Field
                         name="email"
                         component="input"
@@ -53,10 +53,10 @@ function Connexion(){
                         placeholder="Email"
                         className="form-control"
                         />
-                    </div>
+                    
                 </div>
                 <div>
-                <div class="inputbox"> 
+               
                     <Field
                     name="mdp"
                     component="input"
@@ -64,13 +64,13 @@ function Connexion(){
                     placeholder="Mot de passe"
                     className="form-control"
                     />
-                    </div>
+                   
                 </div>
                 
                         
                 
                 <div className="buttons">
-                    <button className="subBtn" type="submit" disabled={submitting || pristine}>
+                    <button  type="submit" disabled={submitting || pristine}>
                     Submit
                     </button>
                     <button
