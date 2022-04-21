@@ -53,9 +53,9 @@
 
 
 .carte {
-  background: #2a3b44;
+  background: linear-gradient(45deg, #fff2e2, #34c1dd);
   height: 270px;
-    width: 200px;
+  width: 200px;
   padding: 3px;
   position: relative;
   border-radius: 6px;
@@ -64,7 +64,8 @@
   text-align: center;
   display: flex;
   font-size: 1.5em;
-  color: rgb(88 199 250 / 100%);
+  font-weight: bold;
+  color: #495057;
   cursor: pointer;
   font-family: sans-serif;
 }
@@ -84,14 +85,12 @@
   width: 104%;
   height: 102%;
   border-radius: 8px;
-  background-image: linear-gradient(
-    var(--rotate)
-    , #5ddcff, #3c67e3 43%, #8b20f0);
-    position: absolute;
-    z-index: -1;
-    top: -1%;
-    left: -2%;
-    animation: spin 2.5s linear infinite;
+  background-image: linear-gradient( var(--rotate) , #ffeebb, #f8f9fa 43%, #ffe8a5);
+  position: absolute;
+  z-index: -1;
+  top: -1%;
+  left: -2%;
+  animation: spin 2.5s linear infinite;
 }
 
 .carte::after {
@@ -106,10 +105,8 @@
   margin: 0 auto;
   transform: scale(0.8);
   filter: blur(calc(var(--card-height) / 6));
-  background-image: linear-gradient(
-    var(--rotate)
-    , #5ddcff, #3c67e3 43%, #8c0dac);
-    opacity: 1;
+  background-image: linear-gradient( var(--rotate) , #f9fafb, #ffdc731f 43%, #ffe9a8);
+  opacity: 1;
   transition: opacity .5s;
   animation: spin 2.5s linear infinite;
 }

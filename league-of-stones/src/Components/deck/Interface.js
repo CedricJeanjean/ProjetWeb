@@ -110,7 +110,9 @@ class Interface extends React.Component {
             <div className={"col-md-6"}>
                 <div className='container-fluid containers-all-cards pb-4'>
                   <div className="row justify-content-around">
-                        <div> <h1> MON DECK FINAL </h1></div>
+                  <div className=" text-center bg-dark">
+                      <h3 className="display-4 text-white">Mon deck final</h3>
+                   </div>
                         <ListCarte updateState={this.handleUpdate} liste={this.listedeck} listedeck={this.liste} listename={this.listename}/>
                     </div>
                 </div>
@@ -127,7 +129,9 @@ class Interface extends React.Component {
               <div className="col-md-6">
                 <div className='container-fluid containers-all-cards pb-4'>
                     <div className="row justify-content-around">
-                        <div> <h1> CHAMPIONS DISPONIBLES </h1></div>
+                    <div className=" text-center">
+                      <h3 className="display-4">Champions disponibles</h3>
+                   </div>
                       <ListCarte updateState={this.handleUpdate} liste={this.liste} listedeck={this.listedeck} listename={this.listename} state={false}/>
                     </div>
                 </div>
@@ -135,7 +139,9 @@ class Interface extends React.Component {
             <div className={"col-md-6"}>
               <div className='container-fluid containers-all-cards pb-4'>
                 <div className="row justify-content-around">
-                      <div> <h1> DECK </h1></div>
+                <div className=" text-center">
+                      <h3 className="display-4">Deck</h3>
+                </div>
                       <ListCarte updateState={this.handleUpdate} liste={this.listedeck} listedeck={this.liste} listename={this.listename} state={true}/>
                   </div>
               </div>

@@ -16,7 +16,7 @@ class ListCarte extends React.Component {
                         this.props.updateState(this.props.liste, this.props.listedeck)
                     }
                 }
-            } className="col-4"> <ComponentCard elem={liste[key]}/> </div>
+            } className="col m-15 cardReact"> <ComponentCard elem={liste[key]}/> </div>
             })
         }
     }
