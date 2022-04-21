@@ -63,7 +63,7 @@ class Interface extends React.Component {
     }).then(result => result.json())
     .then(result => {
       if(!(result.status == "Deck is pending")){
-        window.location.href = "http://localhost:3000/match/partie?"+this.player;
+        window.location.href = "http://localhost:3000/match/partie?player="+this.player;
       }
   });
 }
