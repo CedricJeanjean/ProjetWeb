@@ -13,9 +13,6 @@ function Accueil(){
     if(sessionStorage.getItem('token') == null){
         window.location.href = "http://localhost:3000/connexion/";
     }
-
-
-
     const onclickfct  = fct => {
         window.location.href = "http://localhost:3000/matchmaking/";
     }
