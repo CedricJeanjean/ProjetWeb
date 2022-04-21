@@ -33,38 +33,58 @@ class Match extends React.Component {
 
     getMatch = () =>{
         fetch('http://localhost:3001/match/getMatch', {
-          method: 'GET',
-          headers: {
-            'www-authenticate' : sessionStorage.getItem('token'),
-            'Content-Type': 'application/json'
-          },
-        }).then(result => result.json())
-        .then(result => {
-            console.log(result)
-          if(this.player == "player1"){
-              this.listedeck = result.player1.hand;
-              this.listeboard = result.player1.board;
-              this.listedeckadverse = result.player2.board;
-          }else{
-              this.listedeck = result.player2.hand;
-              this.listedeckadverse = result.player1.board;
-              this.listeboard = result.player2.board;
-          }
-          this.pointdevie = result.player1.hp;
-          this.pointdevie2 = result.player2.hp;
-          this.tour = result.status;
-          if((this.tour == "Turn : player 2" && this.player == "player2") || (this.tour == "Turn : player 1" && this.player == "player1")){
-                this.buttonhidden = false;
-          }
-          else{
-              this.buttonhidden = true;
-          }
-          this.setState({buttonhidden: this.buttonhidden});
-          this.setState({tour: this.tour});
-          this.setState({listedeck: this.listedeck});
-          this.setState({listedeckadverse: this.listedeckadverse});
-          this.setState({listeboard: this.listeboard});
-      });
+            method: 'GET',
+            headers: {
+                'www-authenticate' : sessionStorage.getItem('token'),
+                'Content-Type': 'application/json'
+            },
+            }).then(result =>{
+                if(result.status == "500"){
+                    window.location.href = "http://localhost:3000/matchmaking/";
+                } 
+                result.json()})
+            .then(result => {
+                console.log(result)
+            if(this.player == "player1"){
+                this.listedeck = result.player1.hand;
+                this.listeboard = result.player1.board;
+                this.listedeckadverse = result.player2.board;
+            }else{
+                this.listedeck = result.player2.hand;
+                this.listedeckadverse = result.player1.board;
+                this.listeboard = result.player2.board;
+            }
+            this.pointdevie = result.player1.hp;
+            this.pointdevie2 = result.player2.hp;
+            if(this.pointdevie < 0 || this.pointdevie2 < 0){
+                this.finmatch();
+            }
+            this.tour = result.status;
+            if((this.tour == "Turn : player 2" && this.player == "player2") || (this.tour == "Turn : player 1" && this.player == "player1")){
+                    this.buttonhidden = false;
+            }
+            else{
+                this.buttonhidden = true;
+            }
+            this.setState({buttonhidden: this.buttonhidden});
+            this.setState({tour: this.tour});
+            this.setState({listedeck: this.listedeck});
+            this.setState({listedeckadverse: this.listedeckadverse});
+            this.setState({listeboard: this.listeboard});
+        });
+    }
+
+    finmatch = () => {
+        fetch('http://localhost:3001/match/finishMatch', {
+            method: 'GET',
+            headers: {
+              'www-authenticate' : sessionStorage.getItem('token'),
+              'Content-Type': 'application/json'
+            },
+          }).then(result => result.json())
+          .then(result => {
+            window.location.href = "http://localhost:3000/matchmaking/";
+        });
     }
 
     handleUpdate = (name, listedeck) => {
@@ -132,8 +152,8 @@ class Match extends React.Component {
     }
 
     attackAdv = () => {
-        console.log("ouioui");
         if(this.click){
+            document.body.style.cursor = "auto";
             fetch('http://localhost:3001/match/attackPlayer?card='+this.cardforattack, {
                 method: 'GET',
                 headers: {
