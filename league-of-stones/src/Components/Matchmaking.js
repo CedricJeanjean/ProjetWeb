@@ -17,7 +17,6 @@ class Matchmaking extends React.Component {
             this.componentDidMount();
           }, 2000);
     }
-
     componentDidMount() {
         fetch('http://localhost:3001/matchmaking/getAll', {
             method: 'GET',
@@ -85,6 +84,9 @@ class Matchmaking extends React.Component {
 
 
     render(){
+        if(sessionStorage.getItem('token') == null){
+            window.location.href = "http://localhost:3000/connexion/";
+        }
         return (
             <div>
 
