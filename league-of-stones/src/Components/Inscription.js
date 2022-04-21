@@ -59,7 +59,7 @@ function Inscription(){
                         <Field
                         name="email"
                         
-                        component="input"
+                        component="text"
                         type="email"
                         placeholder="Email"
                         />
