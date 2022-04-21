@@ -103,8 +103,8 @@ class Matchmaking extends React.Component {
                 </div>
                 <br></br> <br></br><br></br><br></br><br></br>
 
-                <div className="text-center">
-                     <h3>Pending request : </h3>
+                <div className=" text-center">
+                     <h3 className="display-4">Les joueurs qui veulent vous défier</h3>
                 </div>
 
                 <div className="d-flex row justify-content-center">
