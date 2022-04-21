@@ -48,8 +48,8 @@ function Connexion(){
                      
                         <Field
                         name="email"
-                        component="text"
-                        type="email"
+                        component="input"
+                        type="text"
                         placeholder="Email"
                         className="form-control"
                         />
