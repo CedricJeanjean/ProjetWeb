@@ -63,7 +63,7 @@ function Inscription(){
                     <Field
                     name="mdp"
                     component="input"
-                    type="text"
+                    type="password"
                     placeholder="Mot de passe"
                     />
                 </div>   

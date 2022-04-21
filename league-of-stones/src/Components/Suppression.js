@@ -9,6 +9,19 @@ import {BrowserRouter as Router , Route, Link, Routes} from "react-router-dom";
 
 
 function Suppression(){
+    const deconnection = async (values) => {
+        fetch("http://localhost:3001/logout", {
+          method: "POST",
+          headers: {
+            "www-authenticate": sessionStorage.getItem("token"),
+            "Content-Type": "application/json",
+          },
+        }).then((result) => {
+          sessionStorage.removeItem("token");
+          window.location.href = "http://localhost:3000/connexion/";
+          result.json();
+        });
+      };
 
     const onSubmit = async values => {
         fetch('http://localhost:3001/users/amIConnected', {
@@ -31,6 +44,8 @@ function Suppression(){
                             alert("Compte introuvable");
                         }else{
                         alert("Compte supprimé");
+                        sessionStorage.removeItem("token");
+                        window.location.href = "http://localhost:3000/connexion/";
                         }
                         return result.json();
                     })
@@ -66,12 +81,10 @@ function Suppression(){
                     <Field
                     name="mdp"
                     component="input"
-                    type="text"
+                    type="password"
                     placeholder="Mot de passe"
                     />
                 </div>
-                
-                        
                 
                 <div className="buttons">
                     <button type="submit" disabled={submitting || pristine}>
