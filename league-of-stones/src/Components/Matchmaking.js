@@ -92,10 +92,12 @@ class Matchmaking extends React.Component {
 
                 <div className="container-fluid">
                 <br></br> <br></br><br></br><br></br><br></br>
-
-                <div className="text-center">
-                     <h3>Sélectionnez votre adversaire</h3>
+                <div className="m-5">
+                <div className=" text-center">
+                     <h3 className="display-4">Sélectionnez votre adversaire</h3>
                 </div>
+                </div>
+                
 
                     <div className="d-flex row justify-content-center">
                     
