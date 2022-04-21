@@ -95,8 +95,7 @@ class Matchmaking extends React.Component {
                      <h3 className="display-4">Sélectionnez votre adversaire</h3>
                 </div>
                 </div>
-                
-
+            
                     <div className="d-flex row justify-content-center">
                     
                         <ListPlayers liste={this.playerslist} setAdv={this.askForPlay}/>
@@ -108,9 +107,10 @@ class Matchmaking extends React.Component {
                      <h3>Pending request : </h3>
                 </div>
 
-                
+                <div className="d-flex row justify-content-center">
 
                 <ListRequest liste={this.request} accept={this.acceptRequest}/>
+                </div>
             </div>
         )
     }

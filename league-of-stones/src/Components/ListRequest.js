@@ -7,7 +7,7 @@ class ListRequest extends React.Component {
         if(this.props.liste != null){
             const liste  = this.props.liste;
             return  Object.keys(liste).map((key, index) => { 
-                return  <div className="col-3 d-flex justify-content-center align-items-center">
+                return  <div className="col-2 m-3  d-flex justify-content-center align-items-center">
                         
                     <div class="carte" onClick={() => {this.props.accept(liste[key].name)}}>Play with {liste[key].name}</div> 
                     </div>
