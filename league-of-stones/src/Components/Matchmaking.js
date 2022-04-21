@@ -77,6 +77,7 @@ class Matchmaking extends React.Component {
             },
           }).then(result => result.json())
           .then(result => {
+
               window.location.href = "http://localhost:3000/match?player=player2";
           }
     );
