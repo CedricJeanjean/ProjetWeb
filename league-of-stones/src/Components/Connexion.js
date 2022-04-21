@@ -42,34 +42,40 @@ function Connexion(){
             onSubmit={onSubmit}
             initialValues={{ stooge: 'larry', employed: false }}
             render={({ handleSubmit, form, submitting, pristine, values }) => (
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit} className="card loginForm">
+                    <h3>Login</h3>
                 <div>
-                   
-                    <Field
-                    name="email"
-                    component="input"
-                    type="text"
-                    placeholder="Email"
-                    />
+                    <div class="inputbox"> 
+                        <Field
+                        name="email"
+                        component="input"
+                        type="email"
+                        placeholder="Email"
+                        className="form-control"
+                        />
+                    </div>
                 </div>
                 <div>
-                   
+                <div class="inputbox"> 
                     <Field
                     name="mdp"
                     component="input"
-                    type="text"
+                    type="password"
                     placeholder="Mot de passe"
+                    className="form-control"
                     />
+                    </div>
                 </div>
                 
                         
                 
                 <div className="buttons">
-                    <button type="submit" disabled={submitting || pristine}>
+                    <button className="subBtn" type="submit" disabled={submitting || pristine}>
                     Submit
                     </button>
                     <button
                     type="button"
+                    
                     onClick={form.reset}
                     disabled={submitting || pristine}
                     >
