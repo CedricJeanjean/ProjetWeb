@@ -116,7 +116,8 @@ i {
 }
 
 #logout:hover {
-  width: 100px;
+  width: 125px;
+  cursor: pointer;
   color: white;
 }
 
