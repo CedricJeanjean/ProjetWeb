@@ -89,9 +89,26 @@ class Matchmaking extends React.Component {
     render(){
         return (
             <div>
-                <ListPlayers liste={this.playerslist} setAdv={this.askForPlay}/>
 
-                Pending request : 
+                <div className="container-fluid">
+                <br></br> <br></br><br></br><br></br><br></br>
+
+                <div className="text-center">
+                     <h3>Sélectionnez votre adversaire</h3>
+                </div>
+
+                    <div className="d-flex row justify-content-center">
+                    
+                        <ListPlayers liste={this.playerslist} setAdv={this.askForPlay}/>
+                    </div>
+                </div>
+                <br></br> <br></br><br></br><br></br><br></br>
+
+                <div className="text-center">
+                     <h3>Pending request : </h3>
+                </div>
+
+                
 
                 <ListRequest liste={this.request} accept={this.acceptRequest}/>
             </div>
