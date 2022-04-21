@@ -169,9 +169,23 @@ class Match extends React.Component {
     }
 
     render(){
-        return (
+        
+            if(this.player==="player1"){
+                return (
             <div>
-                <img src="https://i.redd.it/u595cks8nqhx.jpg" className="player" onClick={this.attackAdv}/>
+                
+                <img src="https://combuzz.files.wordpress.com/2010/10/geek-cyprien.jpg" className="player" onClick={this.attackAdv}/>
+                <p>Player 2 {this.pointdevie2}</p>
+                <div className="row">
+                        <div className={"col-md-6"}>
+                            <div className='container-fluid containers-all-cards pb-4'>
+                                <div className="row justify-content-around">
+                                    <ListCarte updateState={this.handleUpdate} listedeck={this.listedeck}/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <img src="https://i.redd.it/u595cks8nqhx.jpg" className="player" onClick={this.attackAdv}/>
                 <p>Player 1 , Vie : {this.pointdevie}</p>
                 <button onClick={this.fintour} hidden={this.buttonhidden}>Fin du tour</button>
                 <p>{this.tour}</p>
@@ -197,19 +211,52 @@ class Match extends React.Component {
                         </div>
                     </div>
                 </div>
-                <img src="https://combuzz.files.wordpress.com/2010/10/geek-cyprien.jpg" className="player" onClick={this.attackAdv}/>
-                <p>Player 2 {this.pointdevie2}</p>
-                <div className="row">
-                        <div className={"col-md-6"}>
-                            <div className='container-fluid containers-all-cards pb-4'>
-                                <div className="row justify-content-around">
-                                    <ListCarte updateState={this.handleUpdate} listedeck={this.listedeck}/>
+            </div>
+                );
+            }else{
+                return(
+                    <div>
+                    <img src="https://i.redd.it/u595cks8nqhx.jpg" className="player" onClick={this.attackAdv}/>
+                    <p>Player 1 , Vie : {this.pointdevie}</p>
+                    <button onClick={this.fintour} hidden={this.buttonhidden}>Fin du tour</button>
+                    <p>{this.tour}</p>
+                    <button onClick={this.pickcard} hidden={this.buttonhidden}>Piocher une carte</button>
+                    <div className="container">
+                        <div className="row">
+                            <div className={"col-md-6"}>
+                                <div className='container-fluid containers-all-cards pb-4'>
+                                    <div className="row justify-content-around">
+                                        <ListCarteBoard updateState={this.clickadverse} liste={this.listedeckadverse}/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div className="row">
+                            <div className={"col-md-6"}>
+                                <div className='container-fluid containers-all-cards pb-4'>
+                                    <div className="row justify-content-around">
+                                        <ListCarteBoard updateState={this.clickboard} liste={this.listeboard}/>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-            </div>
-        )
+                    <img src="https://combuzz.files.wordpress.com/2010/10/geek-cyprien.jpg" className="player" onClick={this.attackAdv}/>
+                    <p>Player 2 {this.pointdevie2}</p>
+                    <div className="row">
+                            <div className={"col-md-6"}>
+                                <div className='container-fluid containers-all-cards pb-4'>
+                                    <div className="row justify-content-around">
+                                        <ListCarte updateState={this.handleUpdate} listedeck={this.listedeck}/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+                );
+            }
+        
     }
 }
 
