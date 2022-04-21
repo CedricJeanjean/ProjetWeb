@@ -17,6 +17,8 @@ class Match extends React.Component {
         this.buttonhidden = true;
         this.click = false;
         this.cardforattack = "";
+        this.pointdevie = 150;
+        this.pointdevie2 = 150;
 
         const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
@@ -26,7 +28,7 @@ class Match extends React.Component {
     componentDidMount() {
         setInterval(() => {
             this.getMatch()
-          },5000);
+          },1000);
     }
 
     getMatch = () =>{
@@ -48,6 +50,8 @@ class Match extends React.Component {
               this.listedeckadverse = result.player1.board;
               this.listeboard = result.player2.board;
           }
+          this.pointdevie = result.player1.hp;
+          this.pointdevie2 = result.player2.hp;
           this.tour = result.status;
           if((this.tour == "Turn : player 2" && this.player == "player2") || (this.tour == "Turn : player 1" && this.player == "player1")){
                 this.buttonhidden = false;
@@ -122,14 +126,31 @@ class Match extends React.Component {
                     console.log(result);
             });
         }
-        this.click = false
+        this.click = false;
+    }
+
+    attackAdv = () => {
+        console.log("ouioui");
+        if(this.click){
+            fetch('http://localhost:3001/match/attackPlayer?card='+this.cardforattack, {
+                method: 'GET',
+                headers: {
+                    'www-authenticate' : sessionStorage.getItem('token'),
+                    'Content-Type': 'application/json'
+                },
+                }).then(result => result.json())
+                .then(result => {
+                    console.log(result);
+            });
+        }
+        this.click = false;
     }
 
     render(){
         return (
             <div>
-                <img src="https://i.redd.it/u595cks8nqhx.jpg" className="player"/>
-                <p>Player 1</p>
+                <img src="https://i.redd.it/u595cks8nqhx.jpg" className="player" onClick={this.attackAdv}/>
+                <p>Player 1 , Vie : {this.pointdevie}</p>
                 <button onClick={this.fintour} hidden={this.buttonhidden}>Fin du tour</button>
                 <p>{this.tour}</p>
                 <button onClick={this.pickcard} hidden={this.buttonhidden}>Piocher une carte</button>
@@ -154,8 +175,8 @@ class Match extends React.Component {
                         </div>
                     </div>
                 </div>
-                <img src="https://combuzz.files.wordpress.com/2010/10/geek-cyprien.jpg" className="player"/>
-                <p>Player 2</p>
+                <img src="https://combuzz.files.wordpress.com/2010/10/geek-cyprien.jpg" className="player" onClick={this.attackAdv}/>
+                <p>Player 2 {this.pointdevie2}</p>
                 <div className="row">
                         <div className={"col-md-6"}>
                             <div className='container-fluid containers-all-cards pb-4'>
