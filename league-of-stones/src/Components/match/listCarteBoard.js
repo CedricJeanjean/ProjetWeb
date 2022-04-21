@@ -2,15 +2,14 @@ import React from "react";
 import ComponentCard from './componentCard.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-class ListCarte extends React.Component {
+class ListCarteBoard extends React.Component {
     render() {
         let i = 0;
-        if(this.props.listedeck != null){
-            const liste  = this.props.listedeck;
+        if(this.props.liste != null){
+            const liste  = this.props.liste;
             return  Object.keys(liste).map((key, index) => { 
                 return <div key={key} onClick={() => {
-                        this.props.updateState(liste[key].name, this.props.listedeck);
-                        this.props.listedeck.splice(key,1);
+                    this.props.updateState(liste[key].name)
                 }
             } className="col-4"> <ComponentCard elem={liste[key]}/> </div>
             })
@@ -18,4 +17,4 @@ class ListCarte extends React.Component {
     }
  }
 
- export default ListCarte;
+ export default ListCarteBoard;
