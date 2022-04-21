@@ -85,12 +85,12 @@ i {
 
 .logout {
   font-size: .8em;
-  font-family: 'Oswald', sans-serif;
+  font-family:  sans-serif;
 	position: relative;
-  right: -22px;
+  right: -26px;
   bottom: 22px;
   overflow: hidden;
-  letter-spacing: 3px;
+  letter-spacing: 1px;
   opacity: 0;
   transition: opacity .45s;
   -webkit-transition: opacity .35s;
@@ -106,7 +106,7 @@ i {
   color: white;
   width: 35px;
   height: 38px;
-  background-color: black;
+  background-color: #212529;
   transition: width .35s;
   -webkit-transition: width .35s;
   overflow: hidden;

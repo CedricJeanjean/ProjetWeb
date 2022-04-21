@@ -28,10 +28,10 @@ export default function App() {
     return (
       <Router>
         <nav className="navbar navbar-expand-lg  fixed-top navbar-dark bg-dark  ">
-          <Link className="navbar-brand m-2" to="/connexion/">
+          <Link className="navbar-brand m-2 font-weight-light" to="/connexion/">
             Connexion
           </Link>
-          <Link className="navbar-brand m-2" to="/inscription/">
+          <Link className="navbar-brand m-2 font-weight-light" to="/inscription/">
             Inscription
           </Link>
         </nav>
