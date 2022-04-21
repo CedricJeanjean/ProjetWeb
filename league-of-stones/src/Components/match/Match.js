@@ -80,6 +80,19 @@ class Match extends React.Component {
       });
     }
 
+    pickcard = () => {
+        fetch('http://localhost:3001/match/pickCard', {
+          method: 'GET',
+          headers: {
+            'www-authenticate' : sessionStorage.getItem('token'),
+            'Content-Type': 'application/json'
+          },
+        }).then(result => result.json())
+        .then(result => {
+            console.log(result);
+      });
+    }
+
     render(){
         return (
             <div>
@@ -87,6 +100,7 @@ class Match extends React.Component {
                 <p>Player 1</p>
                 <button onClick={this.fintour}>Fin du tour</button>
                 <p>{this.tour}</p>
+                <button onClick={this.pickcard}>Piocher une carte</button>
                 <div className="container">
                     <div className="row">
                         <div className={"col-md-6"}>
