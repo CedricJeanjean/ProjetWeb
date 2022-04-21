@@ -23,6 +23,8 @@ class Interface extends React.Component {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     this.player = urlParams.get('player');
+
+
 }
 
   componentDidMount() {
@@ -100,6 +102,7 @@ class Interface extends React.Component {
     }
 
   }
+ 
 
   render(){
     if(this.deckvalider){
@@ -110,27 +113,59 @@ class Interface extends React.Component {
             <div className={"col-md-6"}>
                 <div className='container-fluid containers-all-cards pb-4'>
                   <div className="row justify-content-around">
-                  <div className=" text-center bg-dark">
+                  <div className=" text-center bg-dark rounded">
                       <h3 className="display-4 text-white">Mon deck final</h3>
                    </div>
                         <ListCarte updateState={this.handleUpdate} liste={this.listedeck} listedeck={this.liste} listename={this.listename}/>
                     </div>
+                   
                 </div>
               </div>
+              <div className={"col-md-6"}>
+              <div className='container-fluid containers-all-cards pb-4'>
+                <div className="row justify-content-around">
+                <div className=" text-center  bg-dark rounded">
+                      <h3 className="display-4 text-white">Statut</h3>
+                </div>
+                <div className="m-5 bg-success bg-opacity-10 rounded">
+                <div className=" text-center">
+                <h6 className="display-4 text-white">En attente de votre adversaire</h6>
+                </div>
+                <div className="d-flex justify-content-center">
+                  
+                <div class="loading">
+                  <div class="dot"></div>
+                  <div class="dot"></div>
+                  <div class="dot"></div>
+                  <div class="dot"></div>
+                  <div class="dot"></div>
+                </div>
+                </div>
+                </div>
+                  </div>
+              </div>
+            </div>
           </div>
+          
+         
       </section>
+      
+    
       );
     }else{
       return (
         <section className="container-fluid pb-5">
           <button onClick={() => {this.button()}} hidden={this.buttonhidden}>Valider</button>
-          <p>{this.textereste}</p>
+          <div className=" text-center">
+            <h5 className=" text-white">{this.textereste}</h5>
+          </div>
+          
           <div className="row">
               <div className="col-md-6">
                 <div className='container-fluid containers-all-cards pb-4'>
                     <div className="row justify-content-around">
-                    <div className=" text-center">
-                      <h3 className="display-4">Champions disponibles</h3>
+                    <div className=" text-center bg-dark rounded">
+                      <h3 className="display-4 text-white ">Champions disponibles</h3>
                    </div>
                       <ListCarte updateState={this.handleUpdate} liste={this.liste} listedeck={this.listedeck} listename={this.listename} state={false}/>
                     </div>
@@ -139,8 +174,8 @@ class Interface extends React.Component {
             <div className={"col-md-6"}>
               <div className='container-fluid containers-all-cards pb-4'>
                 <div className="row justify-content-around">
-                <div className=" text-center">
-                      <h3 className="display-4">Deck</h3>
+                <div className=" text-center  bg-dark rounded">
+                      <h3 className="display-4 text-white">Deck</h3>
                 </div>
                       <ListCarte updateState={this.handleUpdate} liste={this.listedeck} listedeck={this.liste} listename={this.listename} state={true}/>
                   </div>
