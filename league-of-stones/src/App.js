@@ -7,6 +7,7 @@ import Matchmaking from "./Components/Matchmaking";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Accueil from "./Components/Accueil";
 import Match from "./Components/deck/Interface";
+import Partie from "./Components/match/Match";
 
 export default function App() {
   const deconnection = async (values) => {
@@ -58,12 +59,16 @@ export default function App() {
         </div>
       </nav>
 
-      <Routes>
-        <Route path="/" element={<Accueil />} />
-        <Route path="/suppression/" element={<Suppression />} />
-        <Route path="/matchmaking/" element={<Matchmaking />} />
-        <Route path="/match/" element={<Match />} />
-      </Routes>
-    </Router>
+    <Routes>
+      <Route path = "/" element = {<Accueil/>}/>
+      <Route path = "/connexion/" element = {<Connexion/>}/>
+      <Route path = "/inscription/" element = {<Inscription/>}/>
+      <Route path = "/suppression/" element = {<Suppression/>}/>
+      <Route path = "/matchmaking/" element = {<Matchmaking/>}/>
+      <Route path = "/match/" element = {<Match/>}/>
+      <Route path = "/match/partie/" element = {<Partie/>}/>
+    </Routes>
+  </Router>
+
   );
 }

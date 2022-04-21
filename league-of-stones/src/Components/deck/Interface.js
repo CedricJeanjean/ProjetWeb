@@ -16,7 +16,13 @@ class Interface extends React.Component {
     this.textereste = "Il manque 20 cartes";
     this.buttonhidden="hidden";
 
-    setInterval(this.getMatch(),5000);
+    setInterval(() => {
+      this.getMatch()
+    },5000);
+
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    this.player = urlParams.get('player');
 }
 
   componentDidMount() {
@@ -47,7 +53,7 @@ class Interface extends React.Component {
     this.setState(listedeck);
   }
 
-  getMatch() {
+  getMatch = () =>{
     fetch('http://localhost:3001/match/getMatch', {
       method: 'GET',
       headers: {
@@ -56,7 +62,9 @@ class Interface extends React.Component {
       },
     }).then(result => result.json())
     .then(result => {
-      console.log(result);
+      if(!(result.status == "Deck is pending")){
+        window.location.href = "http://localhost:3000/match/partie?"+this.player;
+      }
   });
 }
 
@@ -66,7 +74,6 @@ class Interface extends React.Component {
       this.setState({deckvalider: this.deckvalider});
 
       let uri = "?deck=["+this.listename+"]";
-      console.log(sessionStorage.getItem('token'));
       let encodeduri = encodeURI(uri);
 
       fetch('http://localhost:3001/match/getMatch', {

@@ -46,7 +46,7 @@ class Matchmaking extends React.Component {
             }).then(result => result.json())
             .then(result => {
                 if(result.match!=null){
-                    window.location.href = "http://localhost:3000/match/";
+                    window.location.href = "http://localhost:3000/match?player=player1";
                 }
                 this.request = result.request;
                 this.setState(this.request);
@@ -78,9 +78,7 @@ class Matchmaking extends React.Component {
             },
           }).then(result => result.json())
           .then(result => {
-              console.log(result);
-              document.location.reload(true);
-              window.location.href = "http://localhost:3000/match/";
+              window.location.href = "http://localhost:3000/match?player=player2";
           }
     );
     }
@@ -92,10 +90,12 @@ class Matchmaking extends React.Component {
 
                 <div className="container-fluid">
                 <br></br> <br></br><br></br><br></br><br></br>
-
-                <div className="text-center">
-                     <h3>Sélectionnez votre adversaire</h3>
+                <div className="m-5">
+                <div className=" text-center">
+                     <h3 className="display-4">Sélectionnez votre adversaire</h3>
                 </div>
+                </div>
+                
 
                     <div className="d-flex row justify-content-center">
                     
