@@ -19,6 +19,8 @@ class Match extends React.Component {
         this.cardforattack = "";
         this.pointdevie = 150;
         this.pointdevie2 = 150;
+        this.player1 = "Player 1";
+        this.player2 = "Player 2";
 
         const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
@@ -42,7 +44,7 @@ class Match extends React.Component {
                 if(result.status == "500"){
                     window.location.href = "http://localhost:3000/matchmaking/";
                 } 
-                result.json()})
+                return result.json()})
             .then(result => {
                 console.log(result)
             if(this.player == "player1"){
@@ -56,6 +58,8 @@ class Match extends React.Component {
             }
             this.pointdevie = result.player1.hp;
             this.pointdevie2 = result.player2.hp;
+            this.player1 = result.player1.name;
+            this.player2 = result.player2.name;
             if(this.pointdevie < 0 || this.pointdevie2 < 0){
                 this.finmatch();
             }
@@ -175,7 +179,7 @@ class Match extends React.Component {
             <div>
                 
                 <img src="https://combuzz.files.wordpress.com/2010/10/geek-cyprien.jpg" className="player" onClick={this.attackAdv}/>
-                <p>Player 2 {this.pointdevie2}</p>
+                <p> {this.pointdevie2}</p>
                 <div className="row">
                         <div className={"col-md-6"}>
                             <div className='container-fluid containers-all-cards pb-4'>
@@ -217,7 +221,7 @@ class Match extends React.Component {
                 return(
                     <div>
                     <img src="https://i.redd.it/u595cks8nqhx.jpg" className="player" onClick={this.attackAdv}/>
-                    <p>Player 1 , Vie : {this.pointdevie}</p>
+                    <p>{this.player1}, Vie : {this.pointdevie}</p>
                     <button onClick={this.fintour} hidden={this.buttonhidden}>Fin du tour</button>
                     <p>{this.tour}</p>
                     <button onClick={this.pickcard} hidden={this.buttonhidden}>Piocher une carte</button>
@@ -243,7 +247,7 @@ class Match extends React.Component {
                         </div>
                     </div>
                     <img src="https://combuzz.files.wordpress.com/2010/10/geek-cyprien.jpg" className="player" onClick={this.attackAdv}/>
-                    <p>Player 2 {this.pointdevie2}</p>
+                    <p>{this.player2}, {this.pointdevie2}</p>
                     <div className="row">
                             <div className={"col-md-6"}>
                                 <div className='container-fluid containers-all-cards pb-4'>
