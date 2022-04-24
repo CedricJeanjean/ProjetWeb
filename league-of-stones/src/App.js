@@ -19,7 +19,7 @@ export default function App() {
       },
     }).then((result) => {
       sessionStorage.removeItem("token");
-      window.location.href = "http://localhost:3000/connexion/";
+      window.location.href = "http://localhost:3000/connexion";
       result.json();
     });
   };

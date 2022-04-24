@@ -86,7 +86,7 @@ class Matchmaking extends React.Component {
 
     render(){
         if(sessionStorage.getItem('token') == null){
-            window.location.href = "http://localhost:3000/connexion/";
+            window.location.href = "http://localhost:3000/connexion";
         }
         return (
             <div>

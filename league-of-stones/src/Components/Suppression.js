@@ -18,7 +18,7 @@ function Suppression(){
           },
         }).then((result) => {
           sessionStorage.removeItem("token");
-          window.location.href = "http://localhost:3000/connexion/";
+          window.location.href = "http://localhost:3000/connexion";
           result.json();
         });
       };
@@ -45,7 +45,7 @@ function Suppression(){
                         }else{
                         alert("Compte supprimé");
                         sessionStorage.removeItem("token");
-                        window.location.href = "http://localhost:3000/connexion/";
+                        window.location.href = "http://localhost:3000/connexion";
                         }
                         return result.json();
                     })

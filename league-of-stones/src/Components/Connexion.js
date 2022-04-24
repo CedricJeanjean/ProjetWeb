@@ -28,7 +28,7 @@ function Connexion(){
               return result.json();})
           .then(result => {
             sessionStorage.setItem('token', result.token);
-            window.location.href = "http://localhost:3000/";
+            window.location.href = "http://localhost:3000";
             console.log(result)
           })
     }

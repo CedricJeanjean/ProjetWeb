@@ -26,7 +26,7 @@ function Inscription(){
                 alert("Email existe déjà")
             }else{
                 result.json();
-                window.location.href = "http://localhost:3000/connexion/";
+                window.location.href = "http://localhost:3000/connexion";
             }
         })
     }

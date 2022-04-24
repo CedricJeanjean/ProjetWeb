@@ -49,7 +49,7 @@ class Match extends React.Component {
             },
             }).then(result =>{
                 if(result.status == "500"){
-                    window.location.href = "http://localhost:3000/matchmaking/";
+                    window.location.href = "http://localhost:3000/matchmaking";
                 } 
                 return result.json()})
             .then(result => {
@@ -115,7 +115,7 @@ class Match extends React.Component {
             },
           }).then(result => result.json())
           .then(result => {
-            window.location.href = "http://localhost:3000/matchmaking/";
+            window.location.href = "http://localhost:3000/matchmaking";
         });
     }
 
