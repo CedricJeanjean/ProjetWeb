@@ -1,11 +1,8 @@
-import '../App.css';
+
 import './Accueil.css'
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {BrowserRouter as Router , Route, Link, Routes} from "react-router-dom";
-import Connexion from "./Connexion";
-import Inscription from "./Inscription";
-import { useState } from 'react';
+
 import 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js';
 
 function Accueil(){

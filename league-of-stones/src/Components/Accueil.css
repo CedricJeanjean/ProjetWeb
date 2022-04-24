@@ -20,12 +20,7 @@ margin: -20px 0;
 
 
 
-.body {
-  width: 100%;
 
-  background: url("../accueil.jpg") cover no-repeat center center;
-  overflow-y: hidden;
-}
 * {
     
 	margin: 0;

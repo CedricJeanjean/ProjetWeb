@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import ListCarte from './listCarte.js';
 import ListCarteBoard from './listCarteBoard.js';
 
+
 class Match extends React.Component {
 
     constructor(props) {
@@ -318,7 +319,7 @@ class Match extends React.Component {
                     </div>
                     <img src="https://ddragon.leagueoflegends.com/cdn/12.5.1/img/profileicon/4568.png" className="player" onClick={this.attackAdv}/>
                     <p id="name">{this.player2}, Vie : {this.pointdevie2}</p>
-                    <button onClick={this.fintour} hidden={this.buttonhidden}>Fin du tour</button>
+                    <button onClick={this.fintour} hidden={this.buttonhidden} className="btn-bubble">Fin du tour</button>
                     <button onClick={this.pickcard} hidden={this.buttonhidden}>Piocher une carte</button>
                     <div className="row">
                             <div className={"col"}>
