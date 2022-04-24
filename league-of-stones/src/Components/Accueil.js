@@ -25,7 +25,7 @@ function Accueil(){
                 </div>
 
                 
-x            </div>
+           </div>
       
         </div>
         </body>

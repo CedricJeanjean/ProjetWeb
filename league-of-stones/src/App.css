@@ -192,3 +192,36 @@ a {
 
 
 /**********fin tour btn**/
+
+.btn-bubble {
+  color: white;
+  background-color: #1c87b1;
+  background-repeat: no-repeat;
+  
+}
+.btn-bubble{
+  -webkit-animation: bubbles .5s infinite ease-out;
+          animation: bubbles 3s infinite ease-out;
+  background: radial-gradient(circle at center, rgba(0, 0, 0, 0) 30%, #eeeeff 60%, #eeeeff 65%, rgba(0, 0, 0, 0) 70%) 55% 118% / 0.88em 0.88em, radial-gradient(circle at center, rgba(0, 0, 0, 0) 30%, #eeeeff 60%, #eeeeff 65%, rgba(0, 0, 0, 0) 70%) 94% 131% / 0.87em 0.87em, radial-gradient(circle at center, rgba(0, 0, 0, 0) 30%, #eeeeff 60%, #eeeeff 65%, rgba(0, 0, 0, 0) 70%) 45% 149% / 0.6em 0.6em, radial-gradient(circle at center, rgba(0, 0, 0, 0) 30%, #eeeeff 60%, #eeeeff 65%, rgba(0, 0, 0, 0) 70%) 54% 106% / 0.9em 0.9em, radial-gradient(circle at center, rgba(0, 0, 0, 0) 30%, #eeeeff 60%, #eeeeff 65%, rgba(0, 0, 0, 0) 70%) 23% 135% / 0.67em 0.67em, radial-gradient(circle at center, rgba(0, 0, 0, 0) 30%, #eeeeff 60%, #eeeeff 65%, rgba(0, 0, 0, 0) 70%) 18% 138% / 1.13em 1.13em, radial-gradient(circle at center, rgba(0, 0, 0, 0) 30%, #eeeeff 60%, #eeeeff 65%, rgba(0, 0, 0, 0) 70%) 78% 82% / 1.03em 1.03em, radial-gradient(circle at center, rgba(0, 0, 0, 0) 30%, #eeeeff 60%, #eeeeff 65%, rgba(0, 0, 0, 0) 70%) -1% 85% / 0.62em 0.62em, radial-gradient(circle at center, rgba(0, 0, 0, 0) 30%, #eeeeff 60%, #eeeeff 65%, rgba(0, 0, 0, 0) 70%) 47% 93% / 0.79em 0.79em, radial-gradient(circle at center, rgba(0, 0, 0, 0) 30%, #eeeeff 60%, #eeeeff 65%, rgba(0, 0, 0, 0) 70%) 37% 116% / 0.98em 0.98em, radial-gradient(circle at center, rgba(0, 0, 0, 0) 30%, #eeeeff 60%, #eeeeff 65%, rgba(0, 0, 0, 0) 70%) 107% 107% / 0.95em 0.95em;
+  background-color: #1c87b1;
+  background-repeat: no-repeat;
+}
+
+@-webkit-keyframes bubbles {
+  100% {
+    background-position: 55% -333%, 91% -324%, 55% -390%, 57% -182%, 20% -123%, 15% -118%, 84% -251%, 2% -164%, 56% 17%, 47% -198%, 114% -244%;
+    box-shadow: inset 0 -6.5em 0 #1c87b1;
+  }
+}
+
+@keyframes bubbles {
+  100% {
+    background-position: 55% -333%, 91% -324%, 55% -390%, 57% -182%, 20% -123%, 15% -118%, 84% -251%, 2% -164%, 56% 17%, 47% -198%, 114% -244%;
+    box-shadow: inset 0 -6.5em 0 #3c95b8;
+  }
+}
+.player{
+  border-radius: 50%;
+}
+
+
