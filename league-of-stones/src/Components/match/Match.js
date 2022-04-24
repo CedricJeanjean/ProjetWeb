@@ -248,66 +248,68 @@ class Match extends React.Component {
             if(this.player==="player1"){
                 return (
                 <div>
-                <p id="tour">Tour de {this.tour}</p>
-                <img src="https://ddragon.leagueoflegends.com/cdn/12.5.1/img/profileicon/4568.png" className="player" onClick={this.attackAdv}/>
-                <p id="name">{this.player2}, Vie : {this.pointdevie2}</p>
-                <div className="row">
-                        <div className={"col-md-6"}>
-                            <div className='container-fluid containers-all-cards pb-4'>
-                                <div className="row justify-content-around">
-                                    <ListCarteBoard updateState={this.clickadverse} liste={this.listedeckadverse}/>
+                    <br></br>
+                    <h3 className="display-4" id="tour">Tour de {this.tour}</h3>
+                    <img src="https://ddragon.leagueoflegends.com/cdn/12.5.1/img/profileicon/4568.png" className="player" onClick={this.attackAdv}/>
+                    <p id="name">{this.player2}, Vie : {this.pointdevie2}</p>
+                        
+                                <div className='container-fluid'>
+                                    <div className="d-flex row justify-content-center">
+                                        <ListCarteBoard updateState={this.clickadverse} liste={this.listedeckadverse}/>
+                                    </div>
+                            
+                            </div>
+                    
+                        <hr style={{height: '2px', color:'black'}}/>
+                        <div className="row">
+                            <div className={"col"}>
+                                <div className='container-fluid'>
+                                    <div className="d-flex justify-content-center">
+                                        <ListCarteBoard updateState={this.clickboard} liste={this.listeboard}/>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                        <img src="https://ddragon.leagueoflegends.com/cdn/12.5.1/img/profileicon/3849.png" className="player" onClick={this.attackAdv}/>
+                    <p id="name">{this.player1}, Vie : {this.pointdevie}</p>
+                    <button onClick={this.fintour} hidden={this.buttonhidden}>Fin du tour</button>
+                    <button onClick={this.pickcard} hidden={this.buttonhidden}>Piocher une carte</button>
+                    <div className=" text-center  rounded">
+                     <h3 className="display-4  text-white">Mon deck</h3>
                     </div>
-                    <hr/>
-                    <div className="row">
-                        <div className={"col-md-6"}>
-                            <div className='container-fluid containers-all-cards pb-4'>
-                                <div className="row justify-content-around">
-                                    <ListCarteBoard updateState={this.clickboard} liste={this.listeboard}/>
+                        <div className="row ">
+                            <div className={"col"}>
+                                <div className='container-fluid'>
+                                    <div className="d-flex justify-content-center">
+                                        <ListCarte updateState={this.handleUpdate} listedeck={this.listedeck}/>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <img src="https://ddragon.leagueoflegends.com/cdn/12.5.1/img/profileicon/3849.png" className="player" onClick={this.attackAdv}/>
-                <p id="name">{this.player1}, Vie : {this.pointdevie}</p>
-                <button onClick={this.fintour} hidden={this.buttonhidden}>Fin du tour</button>
-                <button onClick={this.pickcard} hidden={this.buttonhidden}>Piocher une carte</button>
-                <div className="container">
-                    <div className="row">
-                        <div className={"col-md-6"}>
-                            <div className='container-fluid containers-all-cards pb-4'>
-                                <div className="row justify-content-around">
-                                    <ListCarte updateState={this.handleUpdate} listedeck={this.listedeck}/>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                   
             </div>
                 );
             }else{
                 return(
                     <div>
+                    <br></br>
+                    
                     <p id="tour">Tour de {this.tour}</p>
                     <img src="https://ddragon.leagueoflegends.com/cdn/12.5.1/img/profileicon/3849.png" className="player" onClick={this.attackAdv}/>
                     <p id="name">{this.player1}, Vie : {this.pointdevie}</p>
-                    <div className="container">
                         <div className="row">
-                            <div className={"col-md-6"}>
-                                <div className='container-fluid containers-all-cards pb-4'>
-                                    <div className="row justify-content-around">
+                            <div className={"col"}>
+                                <div className='container-fluid'>
+                                    <div className="d-flex row justify-content-center">
                                         <ListCarteBoard updateState={this.clickadverse} liste={this.listedeckadverse}/>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <hr/>
+                        <hr style={{height: '2px', color:'black'}} />
                         <div className="row">
-                            <div className={"col-md-6"}>
-                                <div className='container-fluid containers-all-cards pb-4'>
-                                    <div className="row justify-content-around">
+                            <div className={"col"}>
+                                <div className='container-fluid'>
+                                    <div className="d-flex justify-content-center">
                                         <ListCarteBoard updateState={this.clickboard} liste={this.listeboard}/>
                                     </div>
                                 </div>
@@ -319,9 +321,9 @@ class Match extends React.Component {
                     <button onClick={this.fintour} hidden={this.buttonhidden}>Fin du tour</button>
                     <button onClick={this.pickcard} hidden={this.buttonhidden}>Piocher une carte</button>
                     <div className="row">
-                            <div className={"col-md-6"}>
-                                <div className='container-fluid containers-all-cards pb-4'>
-                                    <div className="row justify-content-around">
+                            <div className={"col"}>
+                                <div className='container-fluid'>
+                                    <div className="d-flex justify-content-center">
                                         <ListCarte updateState={this.handleUpdate} listedeck={this.listedeck}/>
                                     </div>
                                 </div>

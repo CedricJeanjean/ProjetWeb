@@ -6,9 +6,9 @@ class ComponentCard extends React.Component {
         return (    
             <section> 
                
-                <div className="card-before card border-1 bg-black hover-overlay hover-zoom " style={{width: '15rem', height:'25rem', fontFamily:'sans-serif'}}>
-                    <img className="imagelogo card-img-top" src={this.url}></img>
-                    <div className="bg-dark text-secondary panel-footer text-center texte" style={{ fontFamily:'sans-serif'}}>
+                <div className=" card border-1 bg-black hover-overlay hover-zoom " style={{width: '15rem', height:'22rem', fontFamily:'sans-serif'}}>
+                    <img className=" card-img-top" src={this.url}></img>
+                    <div className="bg-dark text-center" style={{ fontFamily:'sans-serif'}}>
                         <p className="bg-black text-white" > {this.props.elem.name}</p>
                         <span className="text-white">Attack : {this.props.elem.info.attack}</span><br/><br/>
                         <span className="text-white">Defense : {this.props.elem.info.defense}</span><br/><br/>

@@ -11,7 +11,7 @@ class ListCarteBoard extends React.Component {
                 return <div key={key} onClick={() => {
                     this.props.updateState(liste[key].name)
                 }
-            } className="col-4"> <ComponentCard elem={liste[key]}/> </div>
+            } className="col-2"> <ComponentCard elem={liste[key]}/> </div>
             })
         }
     }

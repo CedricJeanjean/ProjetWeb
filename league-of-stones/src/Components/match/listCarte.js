@@ -12,7 +12,7 @@ class ListCarte extends React.Component {
                         this.props.updateState(liste[key].name, this.props.listedeck);
                         this.props.listedeck.splice(key,1);
                 }
-            } className="col-4"> <ComponentCard elem={liste[key]}/> </div>
+            } className="col-2"> <ComponentCard elem={liste[key]}/> </div>
             })
         }
     }
