@@ -62,8 +62,14 @@ class Interface extends React.Component {
         'www-authenticate' : sessionStorage.getItem('token'),
         'Content-Type': 'application/json'
       },
-    }).then(result => result.json())
+    }).then(result => {
+      //Match annulé
+      if(result.status == "500"){
+        window.location.href = "http://localhost:3000/Matchmaking";
+      }
+      return result.json()})
     .then(result => {
+      console.log(result);
       if(!(result.status == "Deck is pending")){
         window.location.href = "http://localhost:3000/match/partie?player="+this.player;
       }
@@ -74,6 +80,10 @@ class Interface extends React.Component {
     if(this.listedeck.length >= 20){
       this.deckvalider = !this.deckvalider;
       this.setState({deckvalider: this.deckvalider});
+
+      for(let i = 0; i < this.listedeck.length; i++){
+        this.listename.push("{\"key\": \""+this.listedeck[i].name+"\"}");
+      }
 
       let uri = "?deck=["+this.listename+"]";
       let encodeduri = encodeURI(uri);
@@ -108,7 +118,6 @@ class Interface extends React.Component {
     if(this.deckvalider){
       return (
       <section className="container-fluid pb-5">
-          <button onClick={() => {this.button()}}>Retour</button>
           <div className="row">
             <div className={"col-md-6"}>
                 <div className='container-fluid containers-all-cards pb-4'>
@@ -116,7 +125,7 @@ class Interface extends React.Component {
                   <div className=" text-center bg-dark rounded">
                       <h3 className="display-4 text-white">Mon deck final</h3>
                    </div>
-                        <ListCarte updateState={this.handleUpdate} liste={this.listedeck} listedeck={this.liste} listename={this.listename}/>
+                        <ListCarte updateState={this.handleUpdate} liste={this.listedeck} listedeck={this.liste}/>
                     </div>
                    
                 </div>
@@ -167,7 +176,7 @@ class Interface extends React.Component {
                     <div className=" text-center bg-dark rounded">
                       <h3 className="display-4 text-white ">Champions disponibles</h3>
                    </div>
-                      <ListCarte updateState={this.handleUpdate} liste={this.liste} listedeck={this.listedeck} listename={this.listename} state={false}/>
+                      <ListCarte updateState={this.handleUpdate} liste={this.liste} listedeck={this.listedeck} state={false}/>
                     </div>
                 </div>
               </div>
@@ -177,7 +186,7 @@ class Interface extends React.Component {
                 <div className=" text-center  bg-dark rounded">
                       <h3 className="display-4 text-white">Deck</h3>
                 </div>
-                      <ListCarte updateState={this.handleUpdate} liste={this.listedeck} listedeck={this.liste} listename={this.listename} state={true}/>
+                      <ListCarte updateState={this.handleUpdate} liste={this.listedeck} listedeck={this.liste} state={true}/>
                   </div>
               </div>
             </div>

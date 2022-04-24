@@ -11,7 +11,6 @@ class ListCarte extends React.Component {
                 return <div key={key} onClick={() => {
                     if(this.props.listedeck.length < 20 || this.props.state){
                         this.props.listedeck.push(liste[key]);
-                        this.props.listename.push("{\"key\": \""+liste[key].name+"\"}");
                         this.props.liste.splice(key,1);
                         this.props.updateState(this.props.liste, this.props.listedeck)
                     }
